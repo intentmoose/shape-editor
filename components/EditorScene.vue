@@ -1,7 +1,6 @@
 <template>
   <div class="EditorScene">
     <div class="buttons">
-      {{currentTool}}
       <button class="button" role="button" v-for="btn in buttons" :key="btn" :title="btn.name" @click="currentTool = btn.name">
         <img class="inner-img" :src="btn.src" alt />
       </button>
@@ -20,8 +19,8 @@
                 type="number"
               />
               <div class="btn-wrap">
-                <button @click="selectedObject.scale.z++" class="add-sub-btn">+</button>
-                <button @click="selectedObject.scale.z--" class="add-sub-btn">-</button>
+                <button @click="selectedObject.scale.x++" class="add-sub-btn">+</button>
+                <button @click="selectedObject.scale.x--" class="add-sub-btn">-</button>
               </div>
             </div>
             <label class="label">x</label>
@@ -35,8 +34,8 @@
                 type="number"
               />
               <div class="btn-wrap">
-                <button @click="selectedObject.scale.z++" class="add-sub-btn">+</button>
-                <button @click="selectedObject.scale.z--" class="add-sub-btn">-</button>
+                <button @click="selectedObject.scale.y++" class="add-sub-btn">+</button>
+                <button @click="selectedObject.scale.y--" class="add-sub-btn">-</button>
               </div>
             </div>
             <label class="label">y</label>
@@ -110,10 +109,7 @@
       </div>
     </div>
     <a-scene vr-mode-ui="enabled: false" gridhelper="size: 200; divisions: 400" cursor="rayOrigin:mouse">
-      <!-- <a-entity id="rig" cursor="rayOrigin: mouse" position="0 3 6">
-        <a-entity camera look-controls></a-entity>
-      </a-entity>-->
-      <!-- <a-grid color="#20252c"></a-grid> -->
+
       <a-sky color="#20252c"></a-sky>
       <a-box
         @click="touchHandler"
@@ -279,22 +275,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style lang="scss">
-/* $chalky: #e5c07b;
-$coral: #e06c75;
-$dark_bk: #20252c;
-$rule_bk: #272c34;
-$title_bk: #313845;
-$active_title_bk: #3c424b;
-$highlight_bk: #2b313d;
-$error: #f44747;
-$fountainBlue: #56b6c2;
-$green: #98c379;
-$lightWhite: #abb2bf;
-$lineBright: #495159;
-$lineDark: #323840;
-$malibu: #61afef;
-$purple: #c678dd;
-$whiskey: #d19a66; */
+
 .buttons {
   z-index: 10;
   position: absolute;
